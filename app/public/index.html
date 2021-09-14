@@ -8,20 +8,21 @@
     <title>Books</title>
 
       <header>
-        <nav><a href="index.html">Books</a> | <a href="User%20Information.html">User Information</a> | <a href="Top10.html">Top 10 Players</a></nav>
+        <nav><a href="index.html">Books</a> | <a href="userinformation.html">User Information</a> | <a href="Top10.html">Top 10 Players</a></nav>
       </header>
     </head>
 <h1>Books</h1>
     <body> 
-        <table>
-   <tr>
+<table id="books">
+   <thead>
       <th>Title</th>
       <th>author</th>
       <th>Year published</th>
       <th>publisher</th>
       <th>page count</th>
       <th>MSRP</th>
-   </tr>
+   </thead>
+   <tbody>
    <tr>
       <td>hac habitasse platea</td>
       <td>Di Giorgio</td>
@@ -70,9 +71,7 @@
       <td>438</td>
       <td>$29.65 </td>
    </tr>
-   <tr>
-      <td></td>
-   </tr>
+  </tbody>
 </table>
 <form action="/action_page.php">
   <label for="title">Title:</label><br>
@@ -90,9 +89,11 @@
     <br>
   <input type="submit" value="Submit">
 </form>
-  <br>
-  <br>
-  <p>Citation<cite>https://www.w3schools.com</cite></p>
+  
   <!-- This code was taken from www.w3schools --> 
+  <script src="js/tablesort.min.js"></script>
+  <script>
+    new Tablesort(document.getElementById('books'));
+  </script>
 </body>
 </html>
