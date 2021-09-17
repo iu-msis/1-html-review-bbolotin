@@ -1,13 +1,9 @@
-4500000152	NB	160	100					@3S\QDetails On@	@5B\QSuccessful@	Purchase order successfully created			3	0
-4500000153	NB	160	200					@3S\QDetails On@	@5B\QSuccessful@	Purchase order successfully created			2	0
-6,300.00-
+FROM php:7.4-apache
 
-1500000000
-1500000001
+LABEL maintainer="Bradley Bolotin"
 
-Standard Order 40 
-Outbound Delivery 80000039 has been saved
+#Set the working directory in the image
+WORKDIR /var/www/html
 
-80112
-81,900.00 
-Document 1400000000 was posted in company code 160
+#Copy our public folder to the working directory
+COPY public .
