@@ -11,25 +11,30 @@
         <nav><a href="index.html">Books</a> | <a href="userinformation.html">User Information</a> | <a href="Top10.html">Top 10 Players</a></nav>
       </header>
 </head>
+<body> 
 <h1>User Information</h1>
-    <body> 
-    <h2>Chad Torres</h2>
-    <br/>
-        <a target="_blank" href="43.jpg"></a>
-        <img src="img/43.jpg"  style="width:150px">
-    <p><cite>Chad Torres</cite> randomuser.me</p>
-    <h3> country or origin</h3>
-    <p>USA</p>
-    <h3> birthdate</h3>
-    <p>12/1/1996</p>
-    <h3> age</h3>
-    <p>25</p>
-    <h3> email address</h3>
-    <a class="yellowbackground" href="mailto:email@example.com">chad.torres@example.com</a>
+<div id = "personApp"> 
     
-    <br>
-    <br>
+    <h2>{{person.name.first}} {{person.name.last}}</h2>
+    <a v-bind:href = "picture">
+      <img v-bind:src = "picture">
+       </a>
+        
+    
+    <h3></h3>
+    <p>{{person.address}}</p>
+    <h3>Birthdate</h3>
+    <p>{{userDob}}</p>
+    <h3>Age</h3>
+    <p>{{person.dob.age}}</p>
+    <h3>Country Of Origin</h3>
+    <p>{{person.location.country}}</p>
+    <h3>Email address</h3>
+    <p>{{person.email}}<a v-bind:href="'mailto:'+person.email"></a></p>
+    
+</div>  
     <!-- This code was taken from www.w3schools --> 
-    
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="js/userjs.js"></script>
     </body>
 </html>
