@@ -14,7 +14,10 @@
 <body> 
 <h1>User Information</h1>
 <div id = "personApp"> 
-    
+    <form v-on:submit.prevent="">
+        <button type="submit">Reload</button>
+    </form>
+
     <h2>{{person.name.first}} {{person.name.last}}</h2>
     <a v-bind:href = "picture">
       <img v-bind:src = "picture">
@@ -24,16 +27,17 @@
     <h3></h3>
     <p>{{person.address}}</p>
     <h3>Birthdate</h3>
-    <p>{{userDob}}</p>
+    <p>{{prettyBirthday}}</p>
     <h3>Age</h3>
     <p>{{person.dob.age}}</p>
     <h3>Country Of Origin</h3>
     <p>{{person.location.country}}</p>
-    <h3>Email address</h3>
-    <p>{{person.email}}<a v-bind:href="'mailto:'+person.email"></a></p>
+    <h3>Email Address</h3>
+    <p><a v-bind:href="'mailto:'+person.email">{{person.email}}</a></p>
     
 </div>  
     <!-- This code was taken from www.w3schools --> 
+    <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
     <script src="https://unpkg.com/vue@next"></script>
     <script src="js/userjs.js"></script>
     </body>
