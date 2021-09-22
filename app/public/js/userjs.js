@@ -1,7 +1,7 @@
 const Person = {
     data() {
       return {
-        "person": {},
+        "person": undefined,
               }
     },
     computed:  {

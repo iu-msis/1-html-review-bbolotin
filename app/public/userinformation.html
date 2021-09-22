@@ -17,6 +17,7 @@
     <form v-on:submit.prevent="fetchUserData">
         <button type="submit">Reload</button>
     </form>
+    <div v-if="person">
 
     <h2>{{person.name.first}} {{person.name.last}}</h2>
     <a v-bind:href = "picture">
@@ -34,7 +35,7 @@
     <p>{{person.location.country}}</p>
     <h3>Email Address</h3>
     <p><a v-bind:href="'mailto:'+person.email">{{person.email}}</a></p>
-    
+  </div>
 </div>  
     <!-- This code was taken from www.w3schools --> 
     <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
