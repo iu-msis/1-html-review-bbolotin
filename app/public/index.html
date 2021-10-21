@@ -12,90 +12,73 @@
       </header>
     </head>
 <h1>Books</h1>
-    <body> 
-<table id="books">
-   <thead>
-      <th>Title</th>
-      <th>author</th>
-      <th>Year published</th>
-      <th>publisher</th>
-      <th>page count</th>
-      <th>MSRP</th>
-   </thead>
-   <tbody>
-   <tr>
-      <td>hac habitasse platea</td>
-      <td>Di Giorgio</td>
-      <td>1999</td>
-      <td>Marvin, Kassulke and Pacocha</td>
-      <td>342</td>
-      <td>$35.47 </td>
-   </tr>
-   <tr>
-      <td>orci luctus et ultrices</td>
-      <td>Varvell</td>
-      <td>2007</td>
-      <td>Kuhlman-Cummerata</td>
-      <td>215</td>
-      <td>$39.35 </td>
-   </tr>
-   <tr>
-      <td>justo nec</td>
-      <td>Darter</td>
-      <td>2004</td>
-      <td>Schulist Group</td>
-      <td>33</td>
-      <td>$20.54 </td>
-   </tr>
-   <tr>
-      <td>lorem vitae mattis nibh</td>
-      <td>Albin</td>
-      <td>1996</td>
-      <td>Schroeder and Sons</td>
-      <td>482</td>
-      <td>$27.84 </td>
-   </tr>
-   <tr>
-      <td>penatibus et magnis dis</td>
-      <td>Ragdale</td>
-      <td>1993</td>
-      <td>Stiedemann Group</td>
-      <td>9</td>
-      <td>$11.38 </td>
-   </tr>
-   <tr>
-      <td>in felis donec semper</td>
-      <td>Whyte</td>
-      <td>2007</td>
-      <td>Jacobson-Robel</td>
-      <td>438</td>
-      <td>$29.65 </td>
-   </tr>
-  </tbody>
-</table>
-<form action="/action_page.php">
-  <label for="title">Title:</label><br>
-  <input type="text" id="title" name="title" ><br>
-  <label for="author">Author:</label><br>
-  <input type="text" id="author" name="author"><br>
-    <label for="YP">Year Published:</label><br>
-  <input type="date" id="YP" name="YP"><br>
-    <label for="Publisher">Publisher:</label><br>
-  <input type="text" id="Publisher" name="Publisher"><br>
-    <label for="PC">Page Count:</label><br>
-  <input type="number" id="PC" name="PC"><br>
-    <label for="MSRP">MSRP:</label><br>
-  <input type="number" id="MSRP" name="MSRP"><br>
-    <br>
-  <input type="submit" value="Submit">
-</form>
+<body> 
+<div id="bookApp" class="container" >
+        <div class = "col col-8">
+          <table id="books_table" class="table">
+            <thead>
+              <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Year Published</th>
+                <th>Publisher</th>
+                <th>Page Count</th>
+                <th>MSRP</th>
+              </tr>
+            </thead>
+              <tbody>
+                  <tr v-for="book in books">
+                      <td>{{ book.title }}</td>
+                      <td>{{ book.author }}</td>
+                      <td>{{ book.yearpublished }}</td>
+                      <td>{{ book.publisher }}</td>
+                      <td>{{ book.page_count }}</td>
+                      <td>{{ book.msrp }}</td>
+                  </tr>
+              </tbody>
+          </table>
+        </div>
+      
 
+<form v-on:submit.prevent="postNewBook">
+  <div class="mb-3">
+    <label for="title" class="form-label">Title</label>
+    <input type="text" v-model="booksForm.title"
+     class="form-control" id="Title">
+  </div>
+  <div class="mb-3">
+    <label for="author" class="form-label">Author</label>
+    <input type="text" v-model="booksForm.author" class="form-control" id="author">
+  </div>
+  <div class="mb-3">
+    <label for="yearpublished" class="form-label">Year Published</label>
+    <input type="number" v-model="booksForm.yearpublished" class="form-control" id="yearpublished">
+  </div>
+  <div class="mb-3">
+    <label for="publisher" class="form-label">Publisher</label>
+    <input type="text" v-model="booksForm.publisher" class="form-control" id="publisher">
+  </div>
+  <div class="mb-3">
+    <label for="page_count" class="form-label">Page Count</label>
+    <input type="number" v-model="booksForm.page_count" class="form-control" id="page_count">
+  </div>
+  <div class="mb-3">
+    <label for="msrp" class="form-label">MSRP</label>
+    <input type="number" v-model="booksForm.msrp" class="form-control" id="msrp">
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+</div>
   
   <!-- This code was taken from www.w3schools --> 
   <!-- Ttablesort plug in from http://tristen.ca/tablesort/demo/ --> 
   <script src="js/tablesort.min.js"></script>
   <script>
-    new Tablesort(document.getElementById('books'));
+    new Tablesort(document.getElementById('books_table'));
   </script>
+    <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="js/books.js"></script>
+  
 </body>
 </html>
