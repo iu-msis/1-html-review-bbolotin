@@ -36,7 +36,7 @@ INSERT INTO offer(id, studentId, companyName, salary, bonus, offerDate) VALUES
 
 DROP TABLE IF EXISTS books;
 CREATE TABLE books (
-	id int PRIMARY KEY AUTO_INCREMENT NOT NULL,
+	bookid int PRIMARY KEY AUTO_INCREMENT NOT NULL,
 	title varchar(250) UNIQUE NOT NULL,
     author varchar(100) NOT NULL,
     yearpublished date NOT NULL,
@@ -45,7 +45,7 @@ CREATE TABLE books (
     msrp varchar(48) NOT NULL
 );
 
-INSERT INTO books (id, title, author, yearpublished, publisher, page_count, msrp) VALUES 
+INSERT INTO books (bookid, title, author, yearpublished, publisher, page_count, msrp) VALUES 
 (1, 'hac habitasse platea', 'Di Giorgio','1999','Marvin, Kassulke and Pacocha','342','$35.47'),
 (2, 'orci luctus et ultrices', 'Varvell','2007','Kuhlman-Cummerata','215','$39.35'),
 (3, 'justo nec', 'Darter','2004','Schulist Group','33','$20.54'),
