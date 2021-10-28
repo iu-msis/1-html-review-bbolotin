@@ -3,21 +3,13 @@ const SomeApp = {
       return {
         books: [],
         bookForm: {},
-        
+        selectedBook: null
       }
     },
     computed: {},
     methods: {
-        prettyData(d) {
-            return dayjs(d)
-            .format('D MMM YYYY')
-        },
-        prettyDollar(n) {
-            const d = new Intl.NumberFormat("en-US").format(n);
-            return "$ " + d;
-        },
         fetchBookData() {
-            fetch('/api/book/')
+            fetch('/api/book/index.php')
             .then( response => response.json() )
             .then( (responseJson) => {
                 console.log(responseJson);
@@ -27,9 +19,19 @@ const SomeApp = {
                 console.error(err);
             })
         },
+
+        postBook(evt) {
+          console.log ("Test:", this.selectedBook);
+        if (this.selectedBook) {
+            this.postEditBook(evt);
+        } else {
+            this.postNewBook(evt);
+        }
+      },
+
         postEditBook(evt) {
           this.bookForm.id = this.selectedBook.id;
-          this.bookForm.bookid = this.selectedBook.id;        
+          //this.bookForm.bookid = this.selectedBook.id;        
           
           console.log("Editing!", this.bookForm);
   
@@ -50,8 +52,8 @@ const SomeApp = {
               this.handleResetEdit();
             });
         },
-        postNewBook(evt) {
-          this.bookForm.bookid = this.selectedBook.id;        
+        
+        postNewBook(evt) {     
           
           console.log("Creating!", this.bookForm);
   
@@ -69,10 +71,8 @@ const SomeApp = {
               this.books = json;
               
               // reset the form
-              this.handleResetEdit();
-            })
-            .catch( err => {
-              alert("Something went horribly wrong.");
+              this.bookForm = {};
+           
             });
         },
         postDeleteBook(o) {  

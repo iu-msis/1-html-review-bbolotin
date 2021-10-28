@@ -54,7 +54,7 @@
         
       
       <h3>{{ selectedBook === null ? "Add " : "Edit " }} Book</h3>
-      <form v-on:submit.prevent="postNewBook">
+      <form v-on:submit.prevent="postBook">
         <div class="mb-3">
           <label for="title" class="form-label">Title</label>
           <input type="text" v-model="bookForm.title"
@@ -83,7 +83,8 @@
         <button type="submit" class="btn btn-primary">{{ selectedBook === null ? "Add " : "Edit " }} Book</button>
         <button type="button" class="btn btn-outline-secondary" 
                  v-if="selectedBook"
-                 v-on:click="handleResetEdit">Cancel Edit</button>
+                 v-on:click="handleResetEdit">Cancel Edit
+        </button>
       </form>
     </div>
   </div>
